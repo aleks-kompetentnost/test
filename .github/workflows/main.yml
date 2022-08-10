@@ -14,12 +14,7 @@ jobs:
         server: ftpupload.net
         username: epiz_32293416
         password: ${{ secrets.ftp_password }}
-
-
-on: push
-name: 🚀 Deploy website on push
-jobs:
-  web-deploy:
+  web-deploy2:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
