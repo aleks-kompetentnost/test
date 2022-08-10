@@ -1,18 +1,16 @@
+name: Deploy via git-ftp
 on: push
-name: 🚀 Deploy website on push
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+    - uses: actions/checkout@v1
+    - name: git-ftp push
+      uses: sebastianpopp/git-ftp-action@releases/v3
       with:
-        server: ftpupload.net
-        username: epiz_32293416
+        url: ftpupload.net
+        user: epiz_32293416
         password: ${{ secrets.ftp_password }}
   web-deploy2:
     name: 🎉 Deploy
